@@ -1,0 +1,24 @@
+class A {
+private:
+    int i;
+protected:
+    int j;
+public:
+    int k;
+};
+//inherited private member only class B : private A
+class B : A{
+private:
+    // k and j  are private in class B
+    int x;
+public:
+    int y;
+    int get_j()
+    {
+        return j;
+    }
+};
+
+   B OP;
+   OP.k = 7; //cannot access public member declared in class 'A'
+   OP.y = 9;

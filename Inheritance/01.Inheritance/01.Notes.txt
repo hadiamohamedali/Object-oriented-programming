@@ -1,0 +1,41 @@
+class A{
+private:
+    int i;
+protected:
+    int j;
+public:
+    int k;
+};
+//inherited public member
+class B : public A{
+private:
+    int x;
+public:
+    int y;
+    int get_i()
+    {
+        return i;
+        //cannot access private member declared in class 'A'
+    }
+    int get_j()
+    {
+        return j;
+    }
+};
+
+
+
+ B op;
+    op.i = 5; // false --> cannot access private member declared in class 'A'
+    op.j = 6; //false --> cannot access protected member declared in class 'A'
+    op.k = 7; // true
+    op.x = 8; //false --> cannot access private member declared in class 'B'
+    op.y = 9; //true
+===================================================================
+//1- Reyouzabilate
+     //father      //son
+//2- base class --> derived class
+//3- super class --> sub class
+//member private can access from the same class...
+//member protected can access from the derived class and at the same class...
+//member public can access from anywhere...
